@@ -1,5 +1,5 @@
 [package]
-name = "status-page-scraper"
+name = "maxiv_status"
 version = "0.1.0"
 edition = "2021"
 
