@@ -30,7 +30,7 @@ fn main() {
             got_r1_current = true;
         }
         if let Some(val) = v[SPF_CHARGE_ID]["value"].as_f64() {
-            spf_charge = val;
+            spf_charge = val * 1e12;
             got_spf_charge = true;
         }
         if got_r3_current && got_r1_current && got_spf_charge {
@@ -38,7 +38,7 @@ fn main() {
         }
     }
     println!(
-        "R3 {:.1} mA / R1 {:.1} mA / SPF {} C",
+        "R3 {:.1} mA / R1 {:.1} mA / SPF {:.1} pC",
         r3_current, r1_current, spf_charge
     );
 }
