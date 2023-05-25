@@ -37,8 +37,9 @@ fn main() {
             break;
         }
     }
+
     println!(
-        "R3 {:.1} mA / R1 {:.1} mA / SPF {:.1} pC",
+        "| R3 {:.1} mA | R1 {:.1} mA | SPF {:.1} pC",
         r3_current, r1_current, spf_charge
     );
 }
