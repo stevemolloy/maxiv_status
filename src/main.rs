@@ -43,7 +43,7 @@ fn main() {
             break;
         }
         counter += 1;
-        if counter == 5 {
+        if counter == 2 {
             println!("| R3 --- mA | R1 --- mA | SPF --- pC");
             break;
         }
