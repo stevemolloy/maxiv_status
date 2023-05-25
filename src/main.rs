@@ -2,13 +2,13 @@ use eventsource::reqwest::Client;
 use reqwest::Url;
 use serde_json::Value;
 
-fn main() {
-    const STREAM_URL: &str = "http://status.maxiv.lu.se/stream";
-    let client = Client::new(Url::parse(STREAM_URL).unwrap());
+const STREAM_URL: &str = "http://status.maxiv.lu.se/stream";
+const R3_CURR_ID: &str = "R3-319S2/DIA/DCCT-01/CURRENT";
+const R1_CURR_ID: &str = "R1-101S/DIA/DCCT-01/CURRENT";
+const SPF_CHARGE_ID: &str = "I-SP02/DIA/CT-02/AVERAGECHARGE";
 
-    const R3_CURR_ID: &str = "R3-319S2/DIA/DCCT-01/CURRENT";
-    const R1_CURR_ID: &str = "R1-101S/DIA/DCCT-01/CURRENT";
-    const SPF_CHARGE_ID: &str = "I-SP02/DIA/CT-02/AVERAGECHARGE";
+fn main() {
+    let client = Client::new(Url::parse(STREAM_URL).unwrap());
 
     let mut r3_current = 0f64;
     let mut r1_current = 0f64;
