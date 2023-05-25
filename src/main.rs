@@ -18,6 +18,8 @@ fn main() {
     let mut got_r1_current = false;
     let mut got_spf_charge = false;
 
+    let mut counter = 0;
+
     for event in client {
         let data = &event.as_ref().unwrap().data;
         let v: Value = serde_json::from_str(data).unwrap();
@@ -34,12 +36,16 @@ fn main() {
             got_spf_charge = true;
         }
         if got_r3_current && got_r1_current && got_spf_charge {
+            println!(
+                "| R3 {:.1} mA | R1 {:.1} mA | SPF {:.1} pC",
+                r3_current, r1_current, spf_charge
+            );
+            break;
+        }
+        counter += 1;
+        if counter == 5 {
+            println!("| R3 --- mA | R1 --- mA | SPF --- pC");
             break;
         }
     }
-
-    println!(
-        "| R3 {:.1} mA | R1 {:.1} mA | SPF {:.1} pC",
-        r3_current, r1_current, spf_charge
-    );
 }
